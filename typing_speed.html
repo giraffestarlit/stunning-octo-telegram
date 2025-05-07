@@ -1,0 +1,16 @@
+<p>Type this: <b id="text">hello world</b></p>
+<input id="input" oninput="checkSpeed()" />
+<p id="result"></p>
+
+<script>
+let start;
+function checkSpeed() {
+  const typed = document.getElementById("input").value;
+  const target = document.getElementById("text").textContent;
+  if (!start) start = Date.now();
+  if (typed === target) {
+    const time = (Date.now() - start) / 1000;
+    document.getElementById("result").textContent = `⏱️ Done in ${time}s!`;
+  }
+}
+</script>
